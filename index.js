@@ -1,3 +1,5 @@
+// .envファイルから環境変数を読み込む設定
+require('dotenv').config();
 const { Client, GatewayIntentBits } = require('discord.js');
 
 const client = new Client({
@@ -17,15 +19,15 @@ client.on('messageCreate', message => {
 
     if (message.content.includes('ポムケン')) {
         message.channel.send('ポムムワン！');
-        message.channel.send({ files: ["C:\\Users\\ip062\\Desktop\\pomuken_bot\\pomuken.png"] });
+        // 同じフォルダ内の画像を相対パスで指定
+        message.channel.send({ files: ["./pomuken.png"] });
     }
 
     // 「パモ」と入力された際の処理
     if (message.content.includes('パモ')) {
-        // ランダムに実行したい処理（メッセージや画像）を配列にまとめる
         const responses = [
-            { content: 'パモはいないよ……何言ってんの……' }, // テキストのみ
-            { content: 'パモモ！', files: ["C:\\Users\\ip062\\Desktop\\pomuken_bot\\pamo.png"] }, // テキスト＋画像
+            { content: 'パモはいないよ……何言ってんの……' },
+            { content: 'パモモ！', files: ["./pamo.png"] },
         ];
 
         const randomIndex = Math.floor(Math.random() * responses.length);
@@ -35,9 +37,9 @@ client.on('messageCreate', message => {
     
     if(message.content.includes('タケシ')) {
         message.channel.send('なに？');
-        message.channel.send({ files: ["C:\\Users\\ip062\\Desktop\\pomuken_bot\\タケシ1.jpg"] });
+        message.channel.send({ files: ["./タケシ1.jpg"] });
     }
 });
 
-// Botのトークンを使用してログインする
-client.login('MTUxMjE2ODc5MzcxNDA2OTUzNA.GCCtnP.MaqZ_rSPN6e0fAstgUScuuVPOFh-i3q5ZLtmvY');
+// コードに直接書かず、.envファイルからトークンを読み込む
+client.login(process.env.DISCORD_TOKEN);
