@@ -1,5 +1,7 @@
-// .envファイルから環境変数を読み込む設定
 require('dotenv').config();
+// 以下の1行を追加（トークンの最初の5文字だけを画面に表示して確認する）
+console.log("読み込んだトークン:", process.env.DISCORD_TOKEN ? process.env.DISCORD_TOKEN.substring(0, 5) + "..." : "読み込めていません");
+
 const { Client, GatewayIntentBits } = require('discord.js');
 
 const client = new Client({
