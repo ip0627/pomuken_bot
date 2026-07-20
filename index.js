@@ -19,10 +19,14 @@ client.once('ready', () => {
 client.on('messageCreate', message => {
     if (message.author.bot) return;
 
+    // 「ポムケン」と入力されたときの処理
     if (message.content.includes('ポムケン')) {
-        message.channel.send('ポムムワン！');
-        // 同じフォルダ内の画像を相対パスで指定
-        message.channel.send({ files: ["./pomuken.png"] });
+        const isHaburou = Math.random() < 0.01;
+        const selectedResponse = isHaburou
+            ? { content: 'うお（笑）俺じゃなかったか（笑）', files: ["./ハブロウ.png"] }
+            : { content: 'ポムムワン！', files: ["./pomuken.png"] };
+
+        message.channel.send(selectedResponse);
     }
 
     // 「パモ」と入力された際の処理
@@ -36,10 +40,18 @@ client.on('messageCreate', message => {
         const selectedResponse = responses[randomIndex];
         message.channel.send(selectedResponse);
     }
-    
-    if(message.content.includes('タケシ')) {
-        message.channel.send('なに？');
-        message.channel.send({ files: ["./タケシ1.jpg"] });
+
+    // 「タケシ」と入力された際の処理
+    if (message.content.includes('タケシ')) {
+        const responses = [
+            { content: '今忙しいからあとにして。' },
+            { content: 'なに？', files: ["./タケシ1.jpg"] },
+            { content: 'ジャンケンしようぜ！俺はグー！', files: ["./タケシ2.png"] },
+        ];
+
+        const randomIndex = Math.floor(Math.random() * responses.length);
+        const selectedResponse = responses[randomIndex];
+        message.channel.send(selectedResponse);
     }
 });
 
