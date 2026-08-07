@@ -21,7 +21,8 @@ client.on('messageCreate', message => {
 
     // 「ポムケン」と入力されたときの処理
     if (message.content.includes('ポムケン')) {
-        const isHaburou = Math.random() < 0.01;
+        const rateofHaburouResponses = 0.05;
+        const isHaburou = Math.random() < rateofHaburouResponses;
         const selectedResponse = isHaburou
             ? { content: 'うお（笑）俺じゃなかったか（笑）', files: ["./ハブロウ.png"] }
             : { content: 'ポムムワン！', files: ["./pomuken.png"] };
@@ -52,6 +53,25 @@ client.on('messageCreate', message => {
         const randomIndex = Math.floor(Math.random() * responses.length);
         const selectedResponse = responses[randomIndex];
         message.channel.send(selectedResponse);
+    }
+
+    // 「マサト」と入力された際の処理
+    if (message.content.includes('マサト')) {
+        const responses = [
+            { content: '勉強してるから後にしてよ……' },
+            { content: 'マサト！', files: ["./マサト.png"] },
+        ];
+        const randomIndex = Math.floor(Math.random() * responses.length);
+        const selectedResponse = responses[randomIndex];
+        message.channel.send(selectedResponse);
+    }
+
+    // 「オザケン」と入力された際の処理
+    if (message.content.includes('オザケン')) {
+        const responses = [
+            { content: 'オザケン！', files: ["./オザケン.png"] },
+        ];
+        message.channel.send(responses[0]);
     }
 });
 
