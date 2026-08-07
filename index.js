@@ -68,10 +68,7 @@ client.on('messageCreate', message => {
 
     // 「オザケン」と入力された際の処理
     if (message.content.includes('オザケン')) {
-        const responses = [
-            { content: 'オザケン！', files: ["./オザケン.png"] },
-        ];
-        message.channel.send(responses[0]);
+        message.channel.send({ content: 'オザケン！', files: ["./オザケン.png"] });
     }
 });
 
