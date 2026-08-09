@@ -68,9 +68,11 @@ client.on('messageCreate', message => {
 
     // 「オザケン」と入力された際の処理
     if (message.content.includes('オザケン')) {
-        message.channel.send({ content: 'オザケン！', files: ["./オザケン.png"] });
+        message.channel.send({ content: 'オザケン！', files: ["./オザケン.jpg"] });
     }
 });
 
 // コードに直接書かず、.envファイルからトークンを読み込む
 client.login(process.env.DISCORD_TOKEN);
+// リポジトリへのアクセストークン：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
+
