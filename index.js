@@ -70,6 +70,20 @@ client.on('messageCreate', message => {
     if (message.content.includes('オザケン')) {
         message.channel.send({ content: 'オザケン！', files: ["./オザケン.jpg"] });
     }
+
+    //「脳波」と入力された際の処理
+    if (message.content.includes('脳波')) {
+        message.channel.send({ content: 'やめろそこは、、、', files: ["./やめろそこは.jpg"] });
+    }
+
+
+　　//「うんち」と入力された際の処理
+   if (message.content.includes('うんち')) {
+        message.channel.send({ content: 'やめろそこは、、、', files: ["./やめろそこは.jpg"] });
+    }
+
+
+
 });
 
 // コードに直接書かず、.envファイルからトークンを読み込む
