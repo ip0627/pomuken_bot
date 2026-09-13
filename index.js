@@ -73,7 +73,7 @@ client.on('messageCreate', message => {
 
    // 「脳波」または「うんち」が入力された際の処理
     if (message.content.includes('脳波') || message.content.includes('うんち')) {
-        message.channel.send({ content: 'やめろそこは、、、', files: ['./やめろそこは.jpg'] });
+        message.channel.send({ content: 'やめろそこは、、、', files: ["./やめろそこは.jpg"] });
     }
 
 });
